@@ -5,18 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+    <script src="./home/home.js" type="module"></script>
 </head>
 <body>
     <main>
         <header>
             <div class="logoName">
                 <img class="smallLogo" src="./materials/img/logo.png" alt="">
-                <a href="#" class="companyName">Orangel</a>
+                <a href="" class="companyName">Orangel</a>
             </div>
             <nav>
                 <ul>
                     <li><a href="">Головна</a></li>
-                    <li><a href="">Категорії <!--&bigtriangledown;--></a>
+                    <li><a style="cursor: pointer;">Категорії <!--&bigtriangledown;--></a>
                         <ul>
                             <li><a href="categories/categories.html?type=bestsellers">Бестселери</a></li>
                             <li><a href="categories/categories.html?type=classicBooks">Класика</a></li>
@@ -28,22 +29,6 @@
             </nav>
 
         </header>
-        <!--<header>
-            <div class="logoName">
-                <img class="smallLogo" src="./img/logo.png" alt="">
-                <h2 class="companyName">Orangel</h2>
-            </div>
-            <div id="pages">
-                <a class="home">Головна</a>
-                <a class="catogories">Категорії</a>
-                <a href="http://127.0.0.1:5500/Orangel2.0/cart.html" class="cart">Корзина</a>
-            </div>
-        </header>-->
-        <!--<div class="categories">
-            <h3 id="bestsellers">Bestsellers</h3>
-            <h3 id="classicBooks">Classic</h3>
-            <h3 id="allBooks">All books</h3>
-        </div>-->
         <div class="about">
             <img class="backgrBooks" src="./materials/img/backgrBooks.jpg" alt="">
             <p>Orangel – це місце, де кожен читач знайде натхнення та знання.
@@ -55,35 +40,33 @@
             <img class="bigLogo" src="./materials/img/logo.png" alt="">
         </div>
         <div class="homeContainer">
-            <div class="booksContainer">
-                <h2>Bestsellers</h2>
+            <div class="container">
+                <h2>Бестселери</h2>
                 <div class="bestContainer">
-                    <span class="new">-</span>
+                    <img class="arrow" src="./materials/img/leftArrow.png" alt="">
                     <div class="bestsellersBooks"></div> 
-                    <span class="new">+</span>
+                    <img class="arrow" src="./materials/img/rightArrow.png" alt="">
                 </div>
-                
-                <div class="pagesSpans">
-                    <span class="new">1</span>
-                    <span class="new">2</span>
+                <div class="pagesRectangles">
+                    <div id="bestRight" class="rectangle act"></div>
+                    <div id="bestLeft" class="rectangle"></div>
                 </div>
             </div>
-            <div class="booksContainer">
-                <h2>Classic</h2>
+            <div class="container">
+                <h2>Класика</h2>
                 <div class="classicContainer">
-                    <span class="new">-</span>
+                    <img class="arrow" src="./materials/img/leftArrow.png" alt="">
                     <div class="classicBooks"></div> 
-                    <span class="new">+</span>
+                    <img class="arrow" src="./materials/img/rightArrow.png" alt="">
                 </div>
                 
-                <div class="pagesSpans">
-                    <span class="new">1</span>
-                    <span class="new">2</span>
+                <div class="pagesRectangles">
+                    <div id="classicRight" class="rectangle act"></div>
+                    <div id="classicLeft" class="rectangle"></div>
                 </div>
             </div>
         </div>
         <div class="contacts"></div>
     </main>
-    <script src="./home/home.js" type="module"></script>
 </body>
 </html>
