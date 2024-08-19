@@ -4,18 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book</title>
-    <style>
-        .book {
-            font-family: Arial, Helvetica, sans-serif;
-            img {
-                height: 400px;
-                width: 250px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="./bookPage.css">
+    <script src="./bookPage.js" type="module"></script>
 </head>
 <body>
-    <div id="bookPageContainer"></div>
-    <script src="./bookPage.js" type="module"></script>
+    <header>
+        <div class="logoName">
+            <img class="smallLogo" src="../materials/img/logo.png" alt="">
+            <a href="../home.html" class="companyName">Orangel</a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../home.html">Головна</a></li>
+                <li><a style="cursor: pointer;">Категорії <!--&bigtriangledown;--></a>
+                    <ul>
+                        <li><a href="../categories/categories.html?type=bestsellers">Бестселери</a></li>
+                        <li><a href="../categories/categories.html?type=classicBooks">Класика</a></li>
+                        <li><a href="../categories/categories.html?type=allBooks">Всі книги</a></li>
+                    </ul>
+                </li>
+                <li><a href="../cart/cart.html">Корзина</a></li>
+            </ul>
+        </nav>
+
+    </header>
+    <div class="container"></div>
+    
 </body>
 </html>

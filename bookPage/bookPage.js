@@ -1,26 +1,42 @@
 import { allBooks } from "../materials/books.js";
 
 const myUrl = new URL(location).searchParams.get("id");
-const bookPageContainer = document.getElementById("bookPageContainer");
+const container = document.getElementsByClassName("container")[0];
 const bookId = allBooks.find((e) => e.id == myUrl);
-bookPageContainer.innerHTML = "";
-bookPageContainer.insertAdjacentHTML("beforeend", `
+container.innerHTML = "";
+container.insertAdjacentHTML("beforeend", `
     <div class="book">
         <img class="bookCover" src=".${bookId.cover}" alt="" class="cover">
-        <h2 class="bookName">${bookId.name}</h2>
-        <h4 class="bookAuthor">${bookId.author}</h4>
-        <p>${bookId.description}</p>
-        <h3 class="bookPrice">${bookId.price} грн</h3>
-        <button id="cartStatus">${localStorage.getItem(myUrl) == null ? "To cart" : "In cart"}</button>
+        <div class="bookInfo">
+            <div class="bookDetails">
+                <h1 class="bookName">${bookId.name}</h1>
+                <h2 class="bookAuthor">${bookId.author}</h2>
+                <p class="bookDescription">${bookId.description}</p>
+            </div>
+            <div class="bookBuying">
+                <div class="bookPriceBox">
+                    <h3 class="bookPrice">$${bookId.price}</h3>
+                </div>
+                <div class="cartBox  ${localStorage.getItem(myUrl) == null ? "" : "act"}">
+                    <span class="cartStatus">${localStorage.getItem(myUrl) == null ? "В корзину" : "В корзині"}</span>
+                </div>
+            </div>
+        </div>
     </div>
 `)
-const btn = document.getElementById("cartStatus");
+//${localStorage.getItem(myUrl) == null ? "В корзину" : "В корзині"}
+const btn = document.getElementsByClassName("cartBox")[0];
+const btn2 = document.getElementsByClassName("cartStatus")[0];
+btn2.content = "aaaa";
 btn.addEventListener("click", button => {
-    if(button.target.innerText == "To cart") {
-        button.target.innerText = "In cart";
+    if(button.target.innerText == "В корзину") {
+        //console.log(button)
+        button.target.className = "cartBox act"
+        button.target.innerText = "В корзині";
         localStorage.setItem(myUrl, 1);
-    }else {
-        button.target.innerText = "To cart";
+    }else if(confirm(`Ви дійсно хочете видалити ${bookId.name} з Вашої корзини?`)){
+        button.target.innerText = "В корзину";
+        button.target.className = "cartBox"
         localStorage.removeItem(myUrl);
     }
 })

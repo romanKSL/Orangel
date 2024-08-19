@@ -5,8 +5,12 @@ const bestsellersBooks = document.getElementsByClassName("bestsellersBooks")[0],
 classiccBooks = document.getElementsByClassName("classicBooks")[0];
 //pages = document.getElementsByClassName("pagesSpans")[0];
 //let pagesCount = Math.floor(books.length / 4);
-let pagesCount = 2;
-
+//let pagesCount = 2;
+let bestBooksRectangles = [];
+bestBooksRectangles.push(document.getElementById("bestRight"), document.getElementById("bestLeft"));
+let arrow = Array.from(document.getElementsByClassName("arrow"));
+let classicBooksRectangles = [];
+classicBooksRectangles.push(document.getElementById("classicRight"), document.getElementById("classicLeft"));
 //function pagesSpansRender(pagesCount) {
 //    pages.innerHTML = "";
 //    for(let i = 0; i < pagesCount; i++) {
@@ -18,15 +22,64 @@ let pagesCount = 2;
 booksRender(bestsellersBooks, bestsellers);
 booksRender(classiccBooks, classicBooks);
 //pagesSpansRender(pagesCount);
-
-let newSpan = Array.from(document.getElementsByClassName("new"));
-newSpan.forEach((item, i) => {
-    item.addEventListener("click", () => {
-        console.log(i);
-        booksRender(bestsellersBooks, bestsellers, i)
+rectanglesWork(bestBooksRectangles, bestsellersBooks, bestsellers)
+rectanglesWork(classicBooksRectangles, classiccBooks, classicBooks)
+function rectanglesWork(rectangles, divType, booksType) {
+    rectangles.forEach((item, i) => {
+        //console.log(item, i)
+        item.addEventListener("click", (element) => {
+            //console.log();
+            for(let i=0; i<2; i++) {
+                rectangles[i].className = "rectangle";
+            }
+            //rectangle.forEach(item, () => {
+            //    item.className = "rectangle";
+            //})
+            booksRender(divType, booksType, i)
+            item.className = "rectangle act";
+        })
     })
-})
+}
+
+//arrow.forEach((item, i) => {
+//    console.log(item, i)
+//    item.addEventListener("click", (element) => {
+//        console.log();
+//        for(let i=0; i<2; i++) {
+//            rectangles[i].className = "rectangle";
+//        }
+//        //rectangle.forEach(item, () => {
+//        //    item.className = "rectangle";
+//        //})
+//        booksRender(bestsellersBooks, bestsellers, i)
+//        item.className = "rectangle act";
+//    })
+//})
+
+//for(let i=0; i<2; i++) {
+//    rectangle[i].addEventListener("click", () => {
+//        console.log(element);
+//        rectangle[i].className = "rectangle act";
+//        rectangle[i].className = "rectangle act";
+//        booksRender(bestsellersBooks, bestsellers, i)
+//    })
+//}
+
+//rectangle[0].addEventListener("click", () => {
+//    //console.log(rectangle[0]);
+//    rectangle[0].className = "rectangle act";
+//    rectangle[1].className = "rectangle";
+//    booksRender(bestsellersBooks, bestsellers, 0)
+//})
+//rectangle[1].addEventListener("click", () => {
+//    //console.log(rectangle[1]);
+//    //console.log(rectangle[0]);
+//    rectangle[1].className = "rectangle act";
+//    rectangle[0].className = "rectangle";
+//    booksRender(bestsellersBooks, bestsellers, 1)
+//})
 function booksRender(element, booksArray, page = 0) {
+    
     element.innerHTML = "";
     const minElement = page * 4;
     const maxElement = minElement + 4;
@@ -34,9 +87,11 @@ function booksRender(element, booksArray, page = 0) {
         element.insertAdjacentHTML("beforeend", `
             <div id="${booksArray[i].id}" class="book">
                 <img class="bookCover" src="${booksArray[i].cover}" alt="" class="cover">
-                <h2 class="bookName">${booksArray[i].name}</h2>
+                <h3 class="bookName">${booksArray[i].name}</h3>
                 <h4 class="bookAuthor">${booksArray[i].author}</h4>
-                <h3 class="bookPrice">$${booksArray[i].price}</h3>
+                <div class="bookPriceBox">
+                    <h3 class="bookPrice">$${booksArray[i].price}</h3>
+                </div>
             </div>
         `)
     }

@@ -4,7 +4,7 @@ const myUrl = new URL(location).searchParams.get("type");
 console.log(myUrl);
 
 const container = document.getElementsByClassName("bookContainer")[0];
-const pages = document.getElementsByClassName("pagesSpans")[0];
+const pages = document.getElementsByClassName("pagesRectangles")[0];
 let currentType;
 if(myUrl == "bestsellers") {
     currentType = bestsellers;
@@ -18,18 +18,31 @@ function pagesSpansRender(pagesCount) {
     pages.innerHTML = "";
     for(let i = 0; i < pagesCount; i++) {
         pages.insertAdjacentHTML("beforeend", `
-            <span class="new">${i + 1}</span>
+            <div class="rectangle"></div>
         `)
     }
 }
 pagesSpansRender(pagesCount);
+
 booksRender(container, currentType);
     
-let newSpan = Array.from(document.getElementsByClassName("new"));
-newSpan.forEach((item, i) => {
-    item.addEventListener("click", () => {
-        //console.log(i);
-        booksRender(container, currentType, i)
+let rectangles = Array.from(document.getElementsByClassName("rectangle"));
+rectangles[0].className = "rectangle act";
+rectangles.forEach((item, i) => {
+    //item.addEventListener("click", () => {
+    //    //console.log(i);
+    //    booksRender(container, currentType, i)
+    //})
+    console.log(item, i)
+    item.addEventListener("click", (element) => {
+        for(let i=0; i<pagesCount; i++) {
+            rectangles[i].className = "rectangle";
+        }
+        //rectangle.forEach(item, () => {
+        //    item.className = "rectangle";
+        //})
+        booksRender(container, currentType, i);
+        item.className = "rectangle act";
     })
 })
 function booksRender(element, booksArray, page = 0) {
@@ -41,14 +54,16 @@ function booksRender(element, booksArray, page = 0) {
     }else {
         maxElement = minElement + 8;
     }
-    console.log(maxElement);
+    //console.log(maxElement);
     for(let i = minElement; i < maxElement; i++) {
         element.insertAdjacentHTML("beforeend", `
             <div id="${booksArray[i].id}" class="book">
                 <img class="bookCover" src=".${booksArray[i].cover}" alt="" class="cover">
                 <h3 class="bookName">${booksArray[i].name}</h3>
                 <h4 class="bookAuthor">${booksArray[i].author}</h4>
-                <h3 class="bookPrice">$${booksArray[i].price}</h3>
+                <div class="bookPriceBox">
+                    <h3 class="bookPrice">$${booksArray[i].price}</h3>
+                </div>
             </div>
         `)
     }

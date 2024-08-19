@@ -1,6 +1,6 @@
 import { allBooks } from "../materials/books.js";
 
-const cartPageContainer = document.getElementsByClassName("cartPageContainer")[0];
+const cartPageContainer = document.getElementsByClassName("booksContainer")[0];
 const btn1 = document.getElementById("btn1");
 btn1.addEventListener("click", () => {
     cartSumDisplay();
@@ -15,17 +15,34 @@ function cartRender() {
         const tempBook = allBooks.find(element => element.id == key);
         cartPageContainer.insertAdjacentHTML("beforeend", `
             <div class="book">
-                <img class="bookCover" src=".${tempBook.cover}" alt="" class="cover">
-                <h2 class="bookName">${tempBook.name}</h2>
-                <h4 class="bookAuthor">${tempBook.author}</h4>
-                <h3 class="bookPrice">${tempBook.price} грн</h3>
-                <span id=${tempBook.id} class="delete">DEL</span>
-                <span id=${tempBook.id} class="minus">-</span>
-                <h3 class="bookCount">${localStorage.getItem(key)}</h3>
-                <span id=${tempBook.id} class="plus">+</span>
+                <img id="${key}" class="bookCover" src=".${tempBook.cover}" alt="" class="cover">
+                <div class="bookInfo">
+                    <div class="bookDetails">
+                        <div class="bookNamePlusDelete">
+                            <h2 class="bookName">${tempBook.name}</h2>
+                           <span id=${tempBook.id} class="delete">X</span>
+                        </div>
+                        <h3 class="bookAuthor">${tempBook.author}</h3>
+                    </div>
+                    <div class="bookPrices">
+                        <h3 class="bookPriceBox">$${tempBook.price}</h3>
+                        <div class="bookCostPlusCount">
+                            <h3 class="bookCostBox">$${tempBook.price * localStorage.getItem(key)}</h3>
+                            <span id=${tempBook.id} class="minus">-</span>
+                            <h3 class="bookCount">${localStorage.getItem(key)}</h3>
+                            <span id=${tempBook.id} class="plus">+</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         `)
     }
+    const image = Array.from(document.getElementsByClassName("bookCover"));
+    image.forEach((e, i) => {
+        e.addEventListener("click", () => {
+            location.href = `../bookPage/bookPage.html?id=${e.id}`;
+        })
+    })
     const pluses = Array.from(document.getElementsByClassName("plus"));
     const minuses = Array.from(document.getElementsByClassName("minus"));
     const deletes = Array.from(document.getElementsByClassName("delete"));

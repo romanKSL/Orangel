@@ -69,34 +69,30 @@ header {
         display: initial;
     }
 }
-.about {
+.container {
+    /*width: auto;*/
     margin-top: 66px;
-    height: 330px;
-    background-color: gray;
+    padding: 0 4%;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    padding-left: 40px;
-    padding-right: 40px;
-    .backgrBooks {
-        
-        width: 1060px;
-        height: 260px;
-
+    justify-content: center;
+    h2 {
+        margin-top: 20px;
+        cursor: default;
     }
-    p {
-        font-size: 16px;
-        width: 510px;
-    }
-    .bigLogo {
-        height: 260px;
-        width: 260px;
-    }
+}
+.bookContainer {
+    width: auto;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    
 }
 .book {
     height: auto;
     width: 270px;
-    margin: 0 20px;
+    margin: 20px 20px;
     padding: 10px;
     background: #A4CEA5;
     border-radius: 5px;
@@ -127,47 +123,8 @@ header {
         background-color: #14AE5C;
     }
 }
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /*padding: 10px 0;*/
-    /*margin: 20px 0;*/
-    margin-bottom: 20px;
-    h2 {
-        margin: 20px 0;
-    }
-}
-.bestContainer, .classicContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    .bestsellersBooks {
-        display: flex;
-    }
-}
-/*.classicContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    .bestsellersBooks {
-        display: flex;
-    }
-}*/
-.bestsellersBooks, .classicBooks {
-    display: flex;
-}
-/*.classicBooks {
-    display: flex;
-}*/
-.arrow {
-    height: 30px;
-    margin: 0 20px;
-    cursor: pointer;
-}
 .pagesRectangles {
     display: flex;
-
 }
 .rectangle {
     height: 25px;
