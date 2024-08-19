@@ -1,0 +1,137 @@
+* {
+    padding: 0; margin: 0;
+    box-sizing: border-box;
+    /*height: 1000px;*/
+    font-family: sans-serif;
+    list-style: none;
+    text-decoration: none;
+}
+header {
+    width: 100%;
+    /*height: 80px;*/
+    background: green;
+    color: aliceblue;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    /*cursor: pointer;*/
+    left: 0;
+    right: 0;
+    top: 0;
+    padding: 0 20px;
+    /*box-shadow: 0 5px 10px #1d4d0b;*/
+
+    .logoName {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        img {
+            height: 45px;
+            width: 45px;
+        }
+        a {
+            color: #fff;
+            font-size: 20px;
+            font-weight: 600;
+        }
+    }
+    nav ul li {
+        position: relative;
+        float: left;
+        a {
+            padding: 15px;
+            color: #fff;
+            font-size: 16px;
+            display: block;
+        }
+        a:hover {
+            background: #fff;
+            color: #000;
+        }
+        ul {
+            position: absolute;
+            left: 0;
+            width: 130px;
+            background: green;
+            display: none;
+            li {
+                width: 100%;
+                border: 1px solid rgba(0, 0, 0, .1)
+            }
+        }
+    }
+    nav ul li:hover > ul{
+        display: initial;
+    }
+    /*div#pages {
+        cursor: pointer;
+        display:flex;
+        h2 {
+            margin-right: 50px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    }*/
+    
+}
+.categories{
+    position: fixed;
+    top: 0;
+    right: 200px;
+    background-color: aquamarine;
+    height: auto;
+    width: auto;
+    margin-top: 80px;
+    h3{
+        height: 30px;
+    }
+}
+.about {
+    margin-top: 80px;
+    height: 330px;
+    background-color: gray;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 40px;
+    padding-right: 40px;
+    .backgrBooks {
+        
+        width: 1060px;
+        height: 260px;
+
+    }
+    p {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 16px;
+        width: 510px;
+    }
+    .bigLogo {
+        height: 260px;
+        width: 260px;
+    }
+}
+.homeContainer {
+    .bestContainer {
+        display: flex;
+        .bestsellersBooks {
+            display: flex;
+        }
+    }
+    .classicContainer {
+        display: flex;
+        .classicBooks {
+            display: flex;
+        }
+    }
+    .book {
+        font-family: Arial, Helvetica, sans-serif;
+        img {
+            height: 400px;
+            width: 250px;
+        }
+    }
+}
+.new{
+    cursor: pointer;
+}
