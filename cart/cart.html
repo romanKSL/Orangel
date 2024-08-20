@@ -11,11 +11,11 @@
     <header>
         <div class="logoName">
             <img class="smallLogo" src="../materials/img/logo.png" alt="">
-            <a href="../home.html" class="companyName">Orangel</a>
+            <a href="../index.html" class="companyName">Orangel</a>
         </div>
         <nav>
             <ul>
-                <li><a href="../home.html">Головна</a></li>
+                <li><a href="../index.html">Головна</a></li>
                 <li><a style="cursor: pointer;">Категорії <!--&bigtriangledown;--></a>
                     <ul>
                         <li><a href="../categories/categories.html?type=bestsellers">Бестселери</a></li>
@@ -23,7 +23,7 @@
                         <li><a href="../categories/categories.html?type=allBooks">Всі книги</a></li>
                     </ul>
                 </li>
-                <li><a href="">Корзина</a></li>
+                <li><a class="cartIcon" href="">Корзина</a></li>
             </ul>
         </nav>
 
@@ -32,19 +32,17 @@
         <h2>Cart</h2>
         <div class="container">
             <div class="booksContainer"></div>
-            <div class="orderContainer">
-                <label>Введіть ваше ім'я
-                    <input type="text" >
+            <form class="orderContainer">
+                <h2>Оформлення замовлення</h2>
+                <label>Введіть Ваше ім'я
+                    <input class="nameInput" type="text" >
                 </label>
-                <label>Введіть ваш номер телефону
-                    <input type="text" >
+                <label>Введіть Ваш номер телефону
+                    <input class="phoneNumberInput" type="text" >
                 </label>
-                <div class="cost">
-                    <span>Всього:</span>
-                    <span class="totalCost">$0</span>
-                </div>
-                <button id="btn1">Confirm</button>
-            </div>
+                <span class="totalCost">Всього: $0</span>
+                <button class="confirmButton">Confirm</button>
+            </form>
         </div>
     </div>
 </body>

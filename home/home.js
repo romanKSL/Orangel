@@ -1,114 +1,129 @@
-import { bestsellers, classicBooks } from "../materials/books.js";
+import { bestsellersBooks, classicBooks } from "../materials/books.js";
+
+const cartIcon = document.getElementsByClassName("cartIcon")[0];
+cartIcon.innerHTML = `Корзина <b>${localStorage.length}</b>`
+
+const bestsellersContainer = document.getElementsByClassName("bestsellersContainer")[0],
+classicContainer = document.getElementsByClassName("classicContainer")[0];
+
+const pagesCount = 2;
+//var bestsellersRectangles = [];
+//bestsellersRectangles.push(document.getElementById("bestRight"), document.getElementById("bestLeft"));
+const bestsellersRectangles = Array.from(document.getElementsByClassName("bestsellers"));
+//console.log(bestsellersRectangles);
+let classicRectangles = [];
+classicRectangles.push(document.getElementById("classicRight"), document.getElementById("classicLeft"));
+//let arrow = Array.from(document.getElementsByClassName("arrow"));
+
+const bestsellersBooksArrows = [];
+bestsellersBooksArrows.push(document.getElementById("bestLeftArrow"), document.getElementById("bestRightArrow"));
 
 
-const bestsellersBooks = document.getElementsByClassName("bestsellersBooks")[0],
-classiccBooks = document.getElementsByClassName("classicBooks")[0];
-//pages = document.getElementsByClassName("pagesSpans")[0];
-//let pagesCount = Math.floor(books.length / 4);
-//let pagesCount = 2;
-let bestBooksRectangles = [];
-bestBooksRectangles.push(document.getElementById("bestRight"), document.getElementById("bestLeft"));
-let arrow = Array.from(document.getElementsByClassName("arrow"));
-let classicBooksRectangles = [];
-classicBooksRectangles.push(document.getElementById("classicRight"), document.getElementById("classicLeft"));
-//function pagesSpansRender(pagesCount) {
-//    pages.innerHTML = "";
-//    for(let i = 0; i < pagesCount; i++) {
-//        pages.insertAdjacentHTML("beforeend", `
-//            <span class="new">${i + 1}</span>
-//        `)
-//    }
+booksRender(bestsellersContainer, bestsellersBooks);
+booksRender(classicContainer, classicBooks);
+
+//function arrowsWork(arrows, rectangles, divType, booksType) {
+//    arrows.forEach((item, i) => {
+//        //console.log(item, i)
+//        item.addEventListener("click", (element) => {
+//            //console.log();
+//            for(let i=0; i<pagesCount; i++) {
+//                rectangles[i].className = "rectangle";
+//            }
+//            //rectangle.forEach(item, () => {
+//            //    item.className = "rectangle";
+//            //})
+//            if(i == 1) {
+//                booksRender(divType, booksType)
+//            }else {
+//                booksRender(divType, booksType, 1)
+//            }
+            
+//            //item.className = "rectangle act";
+//        })
+//    })
 //}
-booksRender(bestsellersBooks, bestsellers);
-booksRender(classiccBooks, classicBooks);
-//pagesSpansRender(pagesCount);
-rectanglesWork(bestBooksRectangles, bestsellersBooks, bestsellers)
-rectanglesWork(classicBooksRectangles, classiccBooks, classicBooks)
-function rectanglesWork(rectangles, divType, booksType) {
+//arrowsWork(bestsellersBooksArrows, bestsellerssRectangles, bestsellersConstainer, bestsellersBooks);
+var currentPageBestsellers = 0;
+bestsellersBooksArrows[0].addEventListener("click", () => {
+    currentPageBestsellers = previousPage(currentPageBestsellers);
+})
+bestsellersBooksArrows[1].addEventListener("click", () => {
+    currentPageBestsellers = nextPage(currentPageBestsellers);
+})
+
+function nextPage(currentPage) {
+    console.log(currentPage)
+    if(currentPage == pagesCount-1) {
+        booksRender(bestsellersContainer, bestsellersBooks);
+        return 0;
+    }else {
+        booksRender(bestsellersContainer, bestsellersBooks, currentPage+1);
+        return currentPage+1;
+    }
+}
+function previousPage(currentPage) {
+    console.log(currentPage)
+    if(currentPage == 0) {
+        booksRender(bestsellersContainer, bestsellersBooks, pagesCount-1);
+        return pagesCount-1;
+    }else {
+        booksRender(bestsellersContainer, bestsellersBooks, currentPage-1);
+        return currentPage-1;
+    }
+}
+
+currentPageBestsellers = rectanglesWork(bestsellersRectangles, bestsellersContainer, bestsellersBooks);
+//rectanglesWork(classicRectangles, classicConstainer, classicBooks)
+function rectanglesWork(rectangles, container, booksType) {
     rectangles.forEach((item, i) => {
         //console.log(item, i)
-        item.addEventListener("click", (element) => {
-            //console.log();
-            for(let i=0; i<2; i++) {
+        item.addEventListener("click", () => {
+            for(let i=0; i<pagesCount; i++) {
                 rectangles[i].className = "rectangle";
+                //console.log(rectangles[i].classList);
             }
-            //rectangle.forEach(item, () => {
-            //    item.className = "rectangle";
-            //})
-            booksRender(divType, booksType, i)
+            booksRender(container, booksType, i);
             item.className = "rectangle act";
+            return i;
         })
     })
 }
-
-//arrow.forEach((item, i) => {
-//    console.log(item, i)
-//    item.addEventListener("click", (element) => {
-//        console.log();
-//        for(let i=0; i<2; i++) {
-//            rectangles[i].className = "rectangle";
-//        }
-//        //rectangle.forEach(item, () => {
-//        //    item.className = "rectangle";
-//        //})
-//        booksRender(bestsellersBooks, bestsellers, i)
-//        item.className = "rectangle act";
-//    })
-//})
-
-//for(let i=0; i<2; i++) {
-//    rectangle[i].addEventListener("click", () => {
-//        console.log(element);
-//        rectangle[i].className = "rectangle act";
-//        rectangle[i].className = "rectangle act";
-//        booksRender(bestsellersBooks, bestsellers, i)
-//    })
-//}
-
-//rectangle[0].addEventListener("click", () => {
-//    //console.log(rectangle[0]);
-//    rectangle[0].className = "rectangle act";
-//    rectangle[1].className = "rectangle";
-//    booksRender(bestsellersBooks, bestsellers, 0)
-//})
-//rectangle[1].addEventListener("click", () => {
-//    //console.log(rectangle[1]);
-//    //console.log(rectangle[0]);
-//    rectangle[1].className = "rectangle act";
-//    rectangle[0].className = "rectangle";
-//    booksRender(bestsellersBooks, bestsellers, 1)
-//})
-function booksRender(element, booksArray, page = 0) {
-    
-    element.innerHTML = "";
+function booksRender(container, booksArray, page=0) {
+    console.log("render")
+    console.log(page)
+    container.innerHTML = "";
     const minElement = page * 4;
     const maxElement = minElement + 4;
-    for(let i = minElement; i < maxElement; i++) {
-        element.insertAdjacentHTML("beforeend", `
+    console.log(minElement, maxElement)
+    for(let i=minElement; i<maxElement; i++) {
+        container.insertAdjacentHTML("beforeend", `
             <div id="${booksArray[i].id}" class="book">
                 <img class="bookCover" src="${booksArray[i].cover}" alt="" class="cover">
                 <h3 class="bookName">${booksArray[i].name}</h3>
                 <h4 class="bookAuthor">${booksArray[i].author}</h4>
                 <div class="bookPriceBox">
-                    <h3 class="bookPrice">$${booksArray[i].price}</h3>
+                    <span class="bookPrice">$${booksArray[i].price}</span>
                 </div>
             </div>
         `)
     }
+    //const rectangles = Array.from(document.getElementsByClassName(``));
+    //console.log(rectangles);
+    //rectangles.forEach((item, i) => {
+                //console.log(item, i)
+                //item.addEventListener("click", () => {
+                //    for(let i=0; i<pagesCount; i++) {
+                //        rectangles[i].className = "rectangle";
+                //    }
+                //    booksRender(divType, booksType, i)
+                //    item.className = "rectangle act";
+                //})
+            //})
     const book = Array.from(document.getElementsByClassName("book"));
-    book.forEach((e, i) => {
-        e.addEventListener("click", () => {
-            location.href = `./bookPage/bookPage.html?id=${e.id}`;
+    book.forEach((element) => {
+        element.addEventListener("click", () => {
+            location.href = `./bookPage/bookPage.html?id=${element.id}`;
         })
     })
 }
-//const cartIcon = document.getElementsByClassName("cart")[0];
-//cartIcon.addEventListener("click", () => {
-//    location.href = "http://127.0.0.1:5500/Orangel2.0/cart.html";
-//})
-
-//const cat = document.getElementsByClassName("categories")[0];
-//cat.addEventListener("click", e => {
-//    location.href = `http://127.0.0.1:5500/Orangel2.0/categories.html?type=${e.target.id}`;
-//    console.log(e.target.id);
-//})

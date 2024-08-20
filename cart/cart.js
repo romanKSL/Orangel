@@ -1,13 +1,25 @@
 import { allBooks } from "../materials/books.js";
 
+const cartIcon = document.getElementsByClassName("cartIcon")[0];
+cartIcon.innerHTML = `Корзина <b>${localStorage.length}</b>`
+
 const cartPageContainer = document.getElementsByClassName("booksContainer")[0];
-const btn1 = document.getElementById("btn1");
-btn1.addEventListener("click", () => {
-    cartSumDisplay();
+const confirmButton = document.getElementsByClassName("confirmButton")[0];
+const totalCost = document.getElementsByClassName("totalCost")[0];
+const nameInput = document.getElementsByClassName("nameInput")[0],
+phoneNumberInput = document.getElementsByClassName("phoneNumberInput")[0];
+confirmButton.addEventListener("click", () => {
+    if(confirm("Ви дійсно бажаєте оформити замовлення?")) {
+        alert(`Ви успішно оформили замовлення на ${nameInput.value}. Очікуйте дзвінка`)
+    }
 });
+//const form = document.getElementsByClassName("orderContainer")[0];
+//form.addEventListener('submit', function(event) {
+//    event.preventDefault(); // Зупиняємо стандартну поведінку форми
+//    console.log('Форма була надіслана');
+//})
 
 cartRender();
-
 function cartRender() {
     cartPageContainer.innerHTML = "";
     for(let i=0; i<localStorage.length; i++) {
@@ -60,6 +72,7 @@ function cartRender() {
                 if(confirm(`Are you sure to delete ${allBooks.find(element2 => element2.id == element.id).name}?`)) {
                     localStorage.removeItem(element.id);
                     cartRender();
+                    cartIcon.innerHTML = `Корзина <b>${localStorage.length}</b>`
                 }
             }else {
                 localStorage.setItem(element.id, --currCount);
@@ -72,9 +85,11 @@ function cartRender() {
             if(confirm(`Are you sure to delete ${allBooks.find(element2 => element2.id == element.id).name}?`)) {
                 localStorage.removeItem(element.id);
                 cartRender();
+                cartIcon.innerHTML = `Корзина <b>${localStorage.length}</b>`
             }
         })
     })
+    cartSumDisplay();
 }
 function cartSumDisplay() {
     let sum = 0;
@@ -82,5 +97,5 @@ function cartSumDisplay() {
         let key = localStorage.key(i);
         sum += allBooks.find(element => element.id == key).price * localStorage.getItem(key);
     }
-    console.log(sum);
+    totalCost.innerHTML = `Всього: <b>$${sum}</b>`;
 }

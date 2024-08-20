@@ -1,8 +1,14 @@
 import { allBooks } from "../materials/books.js";
 
+const cartIcon = document.getElementsByClassName("cartIcon")[0];
+cartIcon.innerHTML = `Корзина <b>${localStorage.length}</b>`
+
+const title = document.getElementsByTagName("title")[0];
+
 const myUrl = new URL(location).searchParams.get("id");
 const container = document.getElementsByClassName("container")[0];
 const bookId = allBooks.find((e) => e.id == myUrl);
+title.innerText = `${bookId.name}`;
 container.innerHTML = "";
 container.insertAdjacentHTML("beforeend", `
     <div class="book">
@@ -39,6 +45,7 @@ btn.addEventListener("click", button => {
         button.target.className = "cartBox"
         localStorage.removeItem(myUrl);
     }
+    cartIcon.innerHTML = `Корзина <b>${localStorage.length}</b>`
 })
 
 

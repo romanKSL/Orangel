@@ -61,7 +61,7 @@ header {
                     font-size: 18px;
                 }
                 width: 100%;
-                border: 1px solid rgba(0, 0, 0, .1)
+                border: 1px solid rgba(0, 0, 0, .1);
             }
         }
     }
@@ -77,22 +77,70 @@ header {
         justify-content: space-between;
     }
     .orderContainer {
-        width: 330px;
-        height: 200px;
+        color: #fff;
+        width: 400px;
+        height: 400px;
         background-color: #25773e;
-        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 2px 4px 8px #020c04;
+        margin-top: 20px;
+        padding: 20px 30px;
         display: flex;
         flex-direction: column;
+        /*justify-content: space-between;*/
+        h2 {
+            font-size: 26px;
+        }
         label {
+            font-style: italic;
             display: flex;
             flex-direction: column;
             font-size: 20px;
+            border-radius: 5px;
+            border: 1px solid rgba(0, 0, 0, .2);
+            margin: 15px 0;
+            padding: 5px;
+            /*border: 1px solid #000;*/
             input {
-                margin: 8px 0;
-                height: 20px;
+                /*width: 70%;*/
+                /*height: 150%;*/
+                /*display: flex;
+                align-items: center;
+                justify-self: center;*/
+                border-radius: 3px;
+                padding: 0 5px;
+                /*border: none;*/
+                outline: none;
+                /*box-shadow: 2px 4px 8px #020c04;*/
+                background-color: #124714;
+                color: #f8f8f8;
+                font-size: 20px;
+                margin: 4px 0;
+                height: 25px;
                 border: none;
             }
-        }        
+        }    
+        .totalCost {
+            margin: 10px 0;
+            font-size: 22px;
+        }   
+        .confirmButton {
+            font-size: 24px;
+            color: #fff;
+            background-color: #0d3d25;
+            /*outline: none;*/
+            border: none;
+            border-radius: 5px;
+            margin: 10px 0;
+            align-self: center;
+            height: 50px;
+            width: 140px;
+            transition: 0.5s;
+        }
+        .confirmButton:hover {
+            background-color: #10c966;
+            color: #000;
+        }
     }
 }
 
@@ -101,9 +149,10 @@ header {
     width: 520px;
     background-color: #429140;
     display: flex;
-    margin: 10px 0;
+    margin: 20px 0;
     padding: 10px;
     border-radius: 5px;
+    box-shadow: 2px 4px 8px #020c04;
     .bookCover {
         height: 228px;
         width: 150px;

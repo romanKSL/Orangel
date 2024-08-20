@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Категорія</title>
     <link rel="stylesheet" href="./categories.css">
     <script type="module" src="./categories.js"></script>
 </head>
@@ -11,11 +11,11 @@
     <header>
         <div class="logoName">
             <img class="smallLogo" src="../materials/img/logo.png" alt="">
-            <a href="../home.html" class="companyName">Orangel</a>
+            <a href="../index.html" class="companyName">Orangel</a>
         </div>
         <nav>
             <ul>
-                <li><a href="../home.html">Головна</a></li>
+                <li><a href="../index.html">Головна</a></li>
                 <li><a style="cursor: pointer;">Категорії <!--&bigtriangledown;--></a>
                     <ul>
                         <li><a href="categories.html?type=bestsellers">Бестселери</a></li>
@@ -23,13 +23,13 @@
                         <li><a href="categories.html?type=allBooks">Всі книги</a></li>
                     </ul>
                 </li>
-                <li><a href="../cart/cart.html">Корзина</a></li>
+                <li><a class="cartIcon" href="../cart/cart.html">Корзина</a></li>
             </ul>
         </nav>
 
     </header>
     <div class="container">
-        <h2>Bestsellers</h2>
+        <h2 class="containerTitle">Bestsellers</h2>
         <div class="bookContainer"></div>
         <div class="pagesRectangles"></div>
     </div>

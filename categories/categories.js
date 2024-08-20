@@ -1,17 +1,28 @@
-import { allBooks, bestsellers, classicBooks } from "../materials/books.js";
+import { allBooks, bestsellersBooks, classicBooks } from "../materials/books.js";
+
+const cartIcon = document.getElementsByClassName("cartIcon")[0];
+cartIcon.innerHTML = `Корзина <b>${localStorage.length}</b>`
 
 const myUrl = new URL(location).searchParams.get("type");
 console.log(myUrl);
 
 const container = document.getElementsByClassName("bookContainer")[0];
-const pages = document.getElementsByClassName("pagesRectangles")[0];
+const pages = document.getElementsByClassName("pagesRectangles")[0],
+pageTitle = document.getElementsByTagName("title")[0],
+containerTitle = document.getElementsByClassName("containerTitle")[0];
 let currentType;
 if(myUrl == "bestsellers") {
-    currentType = bestsellers;
+    currentType = bestsellersBooks;
+    containerTitle.innerText = "Бестселери";
+    pageTitle.innerText = "Бестселери";
 }else if(myUrl == "classicBooks") {
     currentType = classicBooks;
+    containerTitle.innerText = "Класика";
+    pageTitle.innerText = "Класика";
 }else {
     currentType = allBooks;
+    containerTitle.innerText = "Всі книги";
+    pageTitle.innerText = "Всі книги";
 }
 let pagesCount = Math.ceil(currentType.length / 8);
 function pagesSpansRender(pagesCount) {
@@ -62,7 +73,7 @@ function booksRender(element, booksArray, page = 0) {
                 <h3 class="bookName">${booksArray[i].name}</h3>
                 <h4 class="bookAuthor">${booksArray[i].author}</h4>
                 <div class="bookPriceBox">
-                    <h3 class="bookPrice">$${booksArray[i].price}</h3>
+                    <span class="bookPrice">$${booksArray[i].price}</span>
                 </div>
             </div>
         `)

@@ -6,9 +6,10 @@
     text-decoration: none;
 }
 body {
-    background-color: #0d3d25;
+    background-color: #095831;
 }
 header {
+    z-index: 1;
     width: 100%;
     background: green;
     color: aliceblue;
@@ -79,6 +80,7 @@ header {
     justify-content: center;
     h2 {
         margin-top: 20px;
+        color: #fff;
         cursor: default;
     }
 }
@@ -90,16 +92,19 @@ header {
     
 }
 .book {
+    /*z-index: -1;*/
     height: auto;
     width: 270px;
     margin: 20px 20px;
     padding: 10px;
     background: #A4CEA5;
     border-radius: 5px;
+    box-shadow: 2px 4px 8px #020c04;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     cursor: pointer;
+    transition: 0.5s;
     .bookName {
         margin: 4px 0;
     }
@@ -113,7 +118,10 @@ header {
         width: 250px;
     }
     .bookPriceBox {
+        transition: 0.5s;
         border-radius: 3px;
+        /*border: 1px solid #0e421f;*/
+        box-shadow: 1px 2px 4px #156826;
         height: 30px;
         width: 75px;
         display: flex;
@@ -121,6 +129,14 @@ header {
         align-self: end;
         align-items: center;
         background-color: #14AE5C;
+    }
+}
+.book:hover {
+    transition: 0.3s;
+    background: #4bc479;
+    transform: scale(1.02);
+    .bookPriceBox {
+        background-color: #12c536;
     }
 }
 .pagesRectangles {
@@ -131,6 +147,7 @@ header {
     width: 25px;
     margin: 30px 10px;
     background-color: rgb(173, 170, 170);
+    box-shadow: 1px 2px 4px #020c04;
     border-radius: 6px;
     cursor: pointer;
 }
