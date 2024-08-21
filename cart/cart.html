@@ -1,49 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cart</title>
+    <title>Кошик</title>
     <link rel="stylesheet" href="./cart.css">
     <script src="./cart.js" type="module"></script>
 </head>
-<body>
-    <header>
-        <div class="logoName">
-            <img class="smallLogo" src="../materials/img/logo.png" alt="">
-            <a href="../index.html" class="companyName">Orangel</a>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="../index.html">Головна</a></li>
-                <li><a style="cursor: pointer;">Категорії <!--&bigtriangledown;--></a>
-                    <ul>
-                        <li><a href="../categories/categories.html?type=bestsellers">Бестселери</a></li>
-                        <li><a href="../categories/categories.html?type=classicBooks">Класика</a></li>
-                        <li><a href="../categories/categories.html?type=allBooks">Всі книги</a></li>
-                    </ul>
-                </li>
-                <li><a class="cartIcon" href="">Корзина</a></li>
-            </ul>
-        </nav>
 
-    </header>
-    <div class="mainContainer">
-        <h2>Cart</h2>
-        <div class="container">
-            <div class="booksContainer"></div>
-            <form class="orderContainer">
-                <h2>Оформлення замовлення</h2>
-                <label>Введіть Ваше ім'я
-                    <input class="nameInput" type="text" >
-                </label>
-                <label>Введіть Ваш номер телефону
-                    <input class="phoneNumberInput" type="text" >
-                </label>
-                <span class="totalCost">Всього: $0</span>
-                <button class="confirmButton">Confirm</button>
-            </form>
+<body>
+    <main>
+        <header>
+            <div class="logoName">
+                <a class="smallLogo" href="../"><img src="../materials/img/logo.png" alt=""></a>
+                <a href="../" class="companyName">Orangel</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../">Головна</a></li>
+                    <li><a style="cursor: pointer;">Категорії</a>
+                        <ul>
+                            <li><a href="../categories/categories.html?type=bestsellersBooks">Бестселери</a></li>
+                            <li><a href="../categories/categories.html?type=classicBooks">Класика</a></li>
+                            <li><a href="../categories/categories.html?type=allBooks">Всі книги</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="cartIcon" href="">Кошик</a></li>
+                </ul>
+            </nav>
+
+        </header>
+        <div class="mainContainer">
+            <span class="containerTitle">Кошик</span>
+            <div class="container">
+                <div class="booksPlusInfo">
+                    <span class="goodsCount"></span>
+                    <div class="booksContainer"></div>
+                    <button class="clearButton">Очистити</button>
+                </div>
+                <div class="orderContainer">
+                    <h2>Оформлення замовлення</h2>
+                    <label>Введіть Ваше ім'я
+                        <input class="nameInput" type="text">
+                    </label>
+                    <label>Введіть Ваш номер телефону
+                        <input class="phoneNumberInput" type="text">
+                    </label>
+                    <span class="totalCost">Всього: $0</span>
+                    <button class="confirmButton">Confirm</button>
+                </div>
+            </div>
         </div>
-    </div>
+    </main>
 </body>
+
 </html>

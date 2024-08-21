@@ -6,10 +6,11 @@
     text-decoration: none;
 }
 body {
-    background-color: #0d3d25;
+    background-color: #095831;
 }
 header {
     width: 100%;
+    padding: 0 20px;
     background: green;
     color: aliceblue;
     display: flex;
@@ -19,153 +20,155 @@ header {
     left: 0;
     right: 0;
     top: 0;
-    padding: 0 20px;
-    .logoName {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        img {
-            height: 45px;
-            width: 45px;
-            margin-right: 20px;
-        }
-        a {
-            color: #fff;
-            font-size: 26px;
-            font-weight: 600;
-        }
+    z-index: 1;
+}
+.logoName {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    img {
+        height: 45px;
+        margin-right: 20px;
     }
-    nav ul li {
-        position: relative;
-        float: left;
-        a {
-            padding: 20px 40px;
-            color: #fff;
-            font-size: 22px;
-            display: block;
-        }
-        a:hover {
-            background: #fff;
-            color: #000;
-        }
-        ul {
-            position: absolute;
-            left: 0;
-            width: 170px;
-            background: green;
-            display: none;      
-            li {
-                a {
-                    padding: 20px auto;
-                    color: #fff;
-                    font-size: 18px;
-                }
-                width: 100%;
-                border: 1px solid rgba(0, 0, 0, .1);
+    .smallLogo {
+        display: flex;
+        align-items: center;
+    }
+    .companyName {
+        font-size: 26px;
+        font-weight: 600;
+        color: #fff;
+    }
+}
+header nav ul li {
+    position: relative;
+    float: left;
+    a {
+        font-size: 22px;
+        padding: 20px 40px;
+        color: #fff;
+        display: block;
+    }
+    a:hover {
+        background: #fff;
+        color: #000;
+    }
+    ul {
+        
+        width: 170px;
+        background: green;
+        display: none;    
+        position: absolute;
+        left: 0;  
+        li {
+            width: 100%;
+            border: 1px solid rgba(0, 0, 0, .1);
+            a {
+                font-size: 18px;
+                padding: 20px auto;
+                color: #fff;
             }
         }
     }
-    nav ul li:hover > ul{
+}
+nav ul li:hover {
+    ul {
         display: initial;
     }
 }
 .mainContainer {
     margin-top: 66px;
     padding: 0 4%;
-    .container {
-        display: flex;
-        justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+}
+.containerTitle {
+    font-size: 28px;
+    margin: 30px 0;
+    color: #fff;
+    align-self: center;
+}
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+.orderContainer {
+    height: 400px;
+    width: 400px;
+    /*margin-top: 20px;*/
+    padding: 20px 30px;
+    background-color: #2e6d41;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 2px 4px 8px #020c04;
+    display: flex;
+    flex-direction: column;
+    h2 {
+        font-size: 26px;
     }
-    .orderContainer {
-        color: #fff;
-        width: 400px;
-        height: 400px;
-        background-color: #25773e;
+    label {
+        font-size: 20px;
+        margin: 15px 0;
+        padding: 5px;
+        font-style: italic;
         border-radius: 5px;
-        box-shadow: 2px 4px 8px #020c04;
-        margin-top: 20px;
-        padding: 20px 30px;
+        border: 1px solid rgba(0, 0, 0, .2);
         display: flex;
         flex-direction: column;
-        /*justify-content: space-between;*/
-        h2 {
-            font-size: 26px;
-        }
-        label {
-            font-style: italic;
-            display: flex;
-            flex-direction: column;
+        input {
+            height: 28px;
             font-size: 20px;
-            border-radius: 5px;
-            border: 1px solid rgba(0, 0, 0, .2);
-            margin: 15px 0;
-            padding: 5px;
-            /*border: 1px solid #000;*/
-            input {
-                /*width: 70%;*/
-                /*height: 150%;*/
-                /*display: flex;
-                align-items: center;
-                justify-self: center;*/
-                border-radius: 3px;
-                padding: 0 5px;
-                /*border: none;*/
-                outline: none;
-                /*box-shadow: 2px 4px 8px #020c04;*/
-                background-color: #124714;
-                color: #f8f8f8;
-                font-size: 20px;
-                margin: 4px 0;
-                height: 25px;
-                border: none;
-            }
-        }    
-        .totalCost {
-            margin: 10px 0;
-            font-size: 22px;
-        }   
-        .confirmButton {
-            font-size: 24px;
-            color: #fff;
-            background-color: #0d3d25;
-            /*outline: none;*/
+            margin: 4px 0;
+            padding: 0 5px;
+            background-color: #124714;
+            color: #f8f8f8;
+            outline: none;
+            border-radius: 3px;
             border: none;
-            border-radius: 5px;
-            margin: 10px 0;
-            align-self: center;
-            height: 50px;
-            width: 140px;
-            transition: 0.5s;
         }
-        .confirmButton:hover {
-            background-color: #10c966;
-            color: #000;
-        }
-    }
+    }    
 }
-
+.totalCost {
+    font-size: 22px;
+    margin: 10px 0;
+}   
+.confirmButton {
+    height: 50px;
+    width: 140px;
+    font-size: 24px;
+    margin: 10px 0;
+    background-color: #0d3d25;
+    color: #fff;
+    border-radius: 5px;
+    transition: 0.5s;
+    border: none;
+    align-self: center;
+}
+.confirmButton:hover {
+    background-color: #10c966;
+    color: #000;
+}
 .book {
     height: auto;
     width: 520px;
-    background-color: #429140;
-    display: flex;
-    margin: 20px 0;
+    margin-bottom: 20px;
     padding: 10px;
+    background-color: #618b61;
     border-radius: 5px;
     box-shadow: 2px 4px 8px #020c04;
+    display: flex;
     .bookCover {
         height: 228px;
         width: 150px;
-        /*margin: 0 10px;*/
         border-radius: 3px;
         cursor: pointer;
     }
     .bookInfo {
         width: 100%;
+        margin-left: 10px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        margin-left: 10px;
         .bookDetails {
             display: flex;
             flex-direction: column;
@@ -173,55 +176,87 @@ header {
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
-                span {
+                .bookName {
+                    font-size: 20px;
+                    font-weight: bold;
+                }
+                .delete {
                     font-size: 30px;
                     cursor: pointer;
                 }
             }
             .bookAuthor {
-                font-style: italic;margin: 8px 0;
+                font-size: 18px;
+                margin: 8px 0;
+                font-style: italic;
             }
         }
         .bookPrices {
             display: flex;
             justify-content: space-between;
             .bookPriceBox {
-                margin: 0;
-                border-radius: 3px;
                 height: 30px;
                 width: 75px;
+                margin: 0;
+                background-color: #14AE5C;
+                border-radius: 3px;
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                background-color: #14AE5C;
             }
             .bookCostPlusCount {
                 display: flex;
                 align-items: center;
                 * {
-                    
                     margin: 0 5px;
                 }
-                /*.minus {
-                    font-size: 30px;
-                }*/
-                span {
-                    cursor: pointer;
-                    font-size: 26px;
-                }
+                
                 .bookCostBox {
-                    margin: 0 5px;
-                    border-radius: 3px;
                     height: 30px;
                     width: 75px;
-                    /*padding: 0 5px;*/
+                    margin: 0 5px;
+                    background-color: #246140;
+                    border-radius: 3px;
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    background-color: #246140;
+                }
+                .minus, .plus {
+                    font-size: 28px;
+                    cursor: pointer;
+                }
+                .bookCount {
+                    font-size: 20px;
                 }
             }
         }
+    } 
+}
+.booksPlusInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .goodsCount {
+        font-size: 22px;
+        margin: 0 20px;
+        color: #fff;
     }
-    
+    .clearButton {
+        height: 40px;
+        width: 100px;
+        font-size: 16px;
+        margin-bottom: 20px;
+        background: #10c966;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.5s;
+    }
+    .clearButton:hover {
+        background-color: #fff;
+        border: 1px solid #0cfa04;
+    }
+    .hide {
+        display: none;
+    }
 }

@@ -1,47 +1,73 @@
-import { allBooks } from "../materials/books.js";
+import { allBooks } from "../materials/state.js";
 
-const cartIcon = document.getElementsByClassName("cartIcon")[0];
-cartIcon.innerHTML = `Корзина <b>${localStorage.length}</b>`
+const cartIcon = document.getElementsByClassName("cartIcon")[0],
+    goodsCount = document.getElementsByClassName("goodsCount")[0], cartPageContainer = document.getElementsByClassName("booksContainer")[0],
+    confirmButton = document.getElementsByClassName("confirmButton")[0],
+    clearButton = document.getElementsByClassName("clearButton")[0],
+    totalCost = document.getElementsByClassName("totalCost")[0],
+    nameInput = document.getElementsByClassName("nameInput")[0],
+    phoneNumberInput = document.getElementsByClassName("phoneNumberInput")[0];
 
-const cartPageContainer = document.getElementsByClassName("booksContainer")[0];
-const confirmButton = document.getElementsByClassName("confirmButton")[0];
-const totalCost = document.getElementsByClassName("totalCost")[0];
-const nameInput = document.getElementsByClassName("nameInput")[0],
-phoneNumberInput = document.getElementsByClassName("phoneNumberInput")[0];
-confirmButton.addEventListener("click", () => {
-    if(confirm("Ви дійсно бажаєте оформити замовлення?")) {
-        alert(`Ви успішно оформили замовлення на ${nameInput.value}. Очікуйте дзвінка`)
-    }
-});
-//const form = document.getElementsByClassName("orderContainer")[0];
-//form.addEventListener('submit', function(event) {
-//    event.preventDefault(); // Зупиняємо стандартну поведінку форми
-//    console.log('Форма була надіслана');
-//})
 
 cartRender();
+
+
+confirmButton.addEventListener("click", () => {
+    if (localStorage.length == 0) {
+        alert("Ваш кошик порожній!");
+    }else if (nameInput.value == "" || phoneNumberInput == ""){
+        alert("Будь ласка, заповніть Ваші данні");
+    }else if (confirm("Ви дійсно бажаєте оформити замовлення?")) {
+        alert(`Вітаємо ${nameInput.value}! Ви успішно оформили замовлення. Очікуйте дзвінка`);
+        console.log(nameInput.value, phoneNumberInput.value);
+        nameInput.value = "";
+        phoneNumberInput.value = "";
+    }
+});
+clearButton.addEventListener("click", () => {
+    if (confirm("Ви дійсно бажаєте очистити кошик?")) {
+        localStorage.clear();
+        cartRender();
+    }
+});
+function cartSumDisplay() {
+    let sum = 0;
+    for (let i=0; i<localStorage.length; i++) {
+        let key = localStorage.key(i);
+        sum += allBooks.find(element => element.id == key).price * localStorage.getItem(key);
+    }
+    totalCost.innerHTML = `Всього: <b>$${sum.toFixed(2)}</b>`;
+}
 function cartRender() {
+    cartIcon.innerHTML = `Кошик <b>${localStorage.length}</b>`
+    if (localStorage.length == 0) {
+        goodsCount.innerText = "Ваш кошик наразі порожній";
+        clearButton.classList.add("hide");
+    } else {
+        goodsCount.innerText = "";
+        clearButton.classList.remove("hide");
+    }
     cartPageContainer.innerHTML = "";
-    for(let i=0; i<localStorage.length; i++) {
+    for (let i=0; i<localStorage.length; i++) {
         let key = localStorage.key(i);
         const tempBook = allBooks.find(element => element.id == key);
         cartPageContainer.insertAdjacentHTML("beforeend", `
             <div class="book">
-                <img id="${key}" class="bookCover" src=".${tempBook.cover}" alt="" class="cover">
+                <img id="${key}" class="bookCover" src=".${tempBook.cover}" alt="">
                 <div class="bookInfo">
                     <div class="bookDetails">
                         <div class="bookNamePlusDelete">
-                            <h2 class="bookName">${tempBook.name}</h2>
+                            <span class="bookName">${tempBook.name}</span>
                            <span id=${tempBook.id} class="delete">X</span>
                         </div>
-                        <h3 class="bookAuthor">${tempBook.author}</h3>
+                        <span class="bookAuthor">${tempBook.author}</span>
                     </div>
                     <div class="bookPrices">
-                        <h3 class="bookPriceBox">$${tempBook.price}</h3>
+                        <span class="bookPriceBox">$${tempBook.price}</span>
                         <div class="bookCostPlusCount">
-                            <h3 class="bookCostBox">$${tempBook.price * localStorage.getItem(key)}</h3>
+                            <span class="bookCostBox">$${(tempBook.price * localStorage.getItem(key)).toFixed(2)}</span>
                             <span id=${tempBook.id} class="minus">-</span>
-                            <h3 class="bookCount">${localStorage.getItem(key)}</h3>
+                            <span class="bookCount">${localStorage.getItem(key)}</span>
                             <span id=${tempBook.id} class="plus">+</span>
                         </div>
                     </div>
@@ -50,14 +76,12 @@ function cartRender() {
         `)
     }
     const image = Array.from(document.getElementsByClassName("bookCover"));
-    image.forEach((e, i) => {
-        e.addEventListener("click", () => {
-            location.href = `../bookPage/bookPage.html?id=${e.id}`;
+    image.forEach((element) => {
+        element.addEventListener("click", () => {
+            location.href = `../bookPage/bookPage.html?id=${element.id}`;
         })
     })
     const pluses = Array.from(document.getElementsByClassName("plus"));
-    const minuses = Array.from(document.getElementsByClassName("minus"));
-    const deletes = Array.from(document.getElementsByClassName("delete"));
     pluses.forEach((element) => {
         element.addEventListener("click", () => {
             let currCount = localStorage.getItem(element.id);
@@ -65,37 +89,30 @@ function cartRender() {
             cartRender();
         })
     })
+    const minuses = Array.from(document.getElementsByClassName("minus"));
     minuses.forEach((element) => {
         element.addEventListener("click", () => {
             let currCount = localStorage.getItem(element.id);
-            if(currCount == 1) {
-                if(confirm(`Are you sure to delete ${allBooks.find(element2 => element2.id == element.id).name}?`)) {
+            if (currCount == 1) {
+                if (confirm(`Ви дійсно хочете видалити ${allBooks.find(element2 => element2.id == element.id).name} з Вашого кошика?`)) {
                     localStorage.removeItem(element.id);
                     cartRender();
-                    cartIcon.innerHTML = `Корзина <b>${localStorage.length}</b>`
                 }
-            }else {
+            } else {
                 localStorage.setItem(element.id, --currCount);
                 cartRender();
             }
         })
     })
+    const deletes = Array.from(document.getElementsByClassName("delete"));
     deletes.forEach((element) => {
         element.addEventListener("click", () => {
-            if(confirm(`Are you sure to delete ${allBooks.find(element2 => element2.id == element.id).name}?`)) {
+            if (confirm(`Ви дійсно хочете видалити ${allBooks.find(element2 => element2.id == element.id).name} з Вашого кошика?`)) {
                 localStorage.removeItem(element.id);
                 cartRender();
-                cartIcon.innerHTML = `Корзина <b>${localStorage.length}</b>`
             }
         })
     })
+
     cartSumDisplay();
-}
-function cartSumDisplay() {
-    let sum = 0;
-    for(let i=0; i<localStorage.length; i++) {
-        let key = localStorage.key(i);
-        sum += allBooks.find(element => element.id == key).price * localStorage.getItem(key);
-    }
-    totalCost.innerHTML = `Всього: <b>$${sum}</b>`;
 }

@@ -9,8 +9,8 @@ body {
     background-color: #095831;
 }
 header {
-    z-index: 1;
     width: 100%;
+    padding: 0 20px;
     background: green;
     color: aliceblue;
     display: flex;
@@ -20,121 +20,127 @@ header {
     left: 0;
     right: 0;
     top: 0;
-    padding: 0 20px;
-    .logoName {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        img {
-            height: 45px;
-            width: 45px;
-            margin-right: 20px;
-        }
-        a {
-            color: #fff;
-            font-size: 26px;
-            font-weight: 600;
-        }
+    z-index: 1;
+}
+.logoName {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    img {
+        height: 45px;
+        margin-right: 20px;
     }
-    nav ul li {
-        position: relative;
-        float: left;
-        a {
-            padding: 20px 40px;
-            color: #fff;
-            font-size: 22px;
-            display: block;
-        }
-        a:hover {
-            background: #fff;
-            color: #000;
-        }
-        ul {
-            position: absolute;
-            left: 0;
-            width: 170px;
-            background: green;
-            display: none;      
-            li {
-                a {
-                    padding: 20px auto;
-                    color: #fff;
-                    font-size: 18px;
-                }
-                width: 100%;
-                border: 1px solid rgba(0, 0, 0, .1)
+    .smallLogo {
+        display: flex;
+        align-items: center;
+    }
+    .companyName {
+        font-size: 26px;
+        font-weight: 600;
+        color: #fff;
+    }
+}
+header nav ul li {
+    position: relative;
+    float: left;
+    a {
+        font-size: 22px;
+        padding: 20px 40px;
+        color: #fff;
+        display: block;
+    }
+    a:hover {
+        background: #fff;
+        color: #000;
+    }
+    ul {
+        
+        width: 170px;
+        background: green;
+        display: none;    
+        position: absolute;
+        left: 0;  
+        li {
+            width: 100%;
+            border: 1px solid rgba(0, 0, 0, .1);
+            a {
+                font-size: 18px;
+                padding: 20px auto;
+                color: #fff;
             }
         }
     }
-    nav ul li:hover > ul{
+}
+nav ul li:hover {
+    ul {
         display: initial;
     }
 }
 .container {
-    /*width: auto;*/
     margin-top: 66px;
     padding: 0 4%;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    h2 {
-        margin-top: 20px;
-        color: #fff;
-        cursor: default;
-    }
+    align-items: center;
 }
-.bookContainer {
+.containerTitle {
+    font-size: 28px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    color: #fff;
+    cursor: default;
+}
+.booksContainer {
     width: auto;
     display: flex;
-    justify-content: space-evenly;
     flex-wrap: wrap;
-    
+    justify-content: space-evenly;
 }
 .book {
-    /*z-index: -1;*/
-    height: auto;
+    height: 508px;
     width: 270px;
-    margin: 20px 20px;
+    margin: 20px;
     padding: 10px;
     background: #A4CEA5;
     border-radius: 5px;
     box-shadow: 2px 4px 8px #020c04;
+    cursor: pointer;
+    transition: 0.5s;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    cursor: pointer;
-    transition: 0.5s;
     .bookName {
+        font-size: 18px;
         margin: 4px 0;
+        font-weight: 600;
     }
     .bookAuthor {
-        font-style: italic;
         margin: 4px 0;
+        font-style: italic;
     }
     .bookCover {
-        border-radius: 3px;
         height: 380px;
         width: 250px;
+        border-radius: 3px;
     }
     .bookPriceBox {
-        transition: 0.5s;
-        border-radius: 3px;
-        /*border: 1px solid #0e421f;*/
-        box-shadow: 1px 2px 4px #156826;
         height: 30px;
         width: 75px;
+        background-color: #14AE5C;
+        border-radius: 4px;
+        box-shadow: 1px 2px 4px #156826;
+        transition: 0.5s;
         display: flex;
         justify-content: center;
         align-self: end;
         align-items: center;
-        background-color: #14AE5C;
     }
 }
-.book:hover {
-    transition: 0.3s;
+.book:hover { 
     background: #4bc479;
     transform: scale(1.02);
+    transition: 0.3s;
     .bookPriceBox {
         background-color: #12c536;
     }

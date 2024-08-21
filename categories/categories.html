@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,31 +8,34 @@
     <link rel="stylesheet" href="./categories.css">
     <script type="module" src="./categories.js"></script>
 </head>
-<body>
-    <header>
-        <div class="logoName">
-            <img class="smallLogo" src="../materials/img/logo.png" alt="">
-            <a href="../index.html" class="companyName">Orangel</a>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="../index.html">Головна</a></li>
-                <li><a style="cursor: pointer;">Категорії <!--&bigtriangledown;--></a>
-                    <ul>
-                        <li><a href="categories.html?type=bestsellers">Бестселери</a></li>
-                        <li><a href="categories.html?type=classicBooks">Класика</a></li>
-                        <li><a href="categories.html?type=allBooks">Всі книги</a></li>
-                    </ul>
-                </li>
-                <li><a class="cartIcon" href="../cart/cart.html">Корзина</a></li>
-            </ul>
-        </nav>
 
-    </header>
-    <div class="container">
-        <h2 class="containerTitle">Bestsellers</h2>
-        <div class="bookContainer"></div>
-        <div class="pagesRectangles"></div>
-    </div>
+<body>
+    <main>
+        <header>
+            <div class="logoName">
+                <a class="smallLogo" href="../"><img src="../materials/img/logo.png" alt=""></a>
+                <a href="../" class="companyName">Orangel</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../">Головна</a></li>
+                    <li><a style="cursor: pointer">Категорії</a>
+                        <ul>
+                            <li><a href="categories.html?type=bestsellersBooks">Бестселери</a></li>
+                            <li><a href="categories.html?type=classicBooks">Класика</a></li>
+                            <li><a href="categories.html?type=allBooks">Всі книги</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="cartIcon" href="../cart/cart.html">Кошик</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="container">
+            <span class="containerTitle"></span>
+            <div class="booksContainer"></div>
+            <div class="pagesRectangles"></div>
+        </div>
+    </main>
 </body>
+
 </html>
