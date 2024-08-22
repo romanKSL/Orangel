@@ -21,59 +21,58 @@ header {
     right: 0;
     top: 0;
     z-index: 1;
-}
-.logoName {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    img {
-        height: 45px;
-        margin-right: 20px;
-    }
-    .smallLogo {
+    .logoName {
         display: flex;
+        justify-content: space-between;
         align-items: center;
+        img {
+            height: 45px;
+            margin-right: 20px;
+        }
+        .smallLogo {
+            display: flex;
+            align-items: center;
+        }
+        .companyName {
+            font-size: 26px;
+            font-weight: 600;
+            color: #fff;
+        }
     }
-    .companyName {
-        font-size: 26px;
-        font-weight: 600;
-        color: #fff;
-    }
-}
-header nav ul li {
-    position: relative;
-    float: left;
-    a {
-        font-size: 22px;
-        padding: 20px 40px;
-        color: #fff;
-        display: block;
-    }
-    a:hover {
-        background: #fff;
-        color: #000;
-    }
-    ul {
-        
-        width: 170px;
-        background: green;
-        display: none;    
-        position: absolute;
-        left: 0;  
-        li {
-            width: 100%;
-            border: 1px solid rgba(0, 0, 0, .1);
-            a {
-                font-size: 18px;
-                padding: 20px auto;
-                color: #fff;
+    nav ul li {
+        position: relative;
+        float: left;
+        a {
+            font-size: 22px;
+            padding: 20px 40px;
+            color: #fff;
+            display: block;
+        }
+        a:hover {
+            background: #fff;
+            color: #000;
+        }
+        ul {
+            width: 170px;
+            background: green;
+            display: none;    
+            position: absolute;
+            left: 0;  
+            li {
+                width: 100%;
+                border: 1px solid rgba(0, 0, 0, .1);
+                a {
+                    font-size: 18px;
+                    padding: 20px auto;
+                    color: #fff;
+                }
             }
         }
     }
-}
-nav ul li:hover {
-    ul {
-        display: initial;
+    nav ul li:hover {
+        ul {
+            display: initial;
+        }
     }
 }
 .mainContainer {
@@ -92,61 +91,33 @@ nav ul li:hover {
     display: flex;
     justify-content: space-between;
 }
-.orderContainer {
-    height: 400px;
-    width: 400px;
-    /*margin-top: 20px;*/
-    padding: 20px 30px;
-    background-color: #2e6d41;
-    color: #fff;
-    border-radius: 5px;
-    box-shadow: 2px 4px 8px #020c04;
+.booksAndInfo {
     display: flex;
     flex-direction: column;
-    h2 {
-        font-size: 26px;
+    align-items: center;
+    .booksCount {
+        font-size: 22px;
+        margin: 0 20px;
+        color: #fff;
     }
-    label {
-        font-size: 20px;
-        margin: 15px 0;
-        padding: 5px;
-        font-style: italic;
+    .clearButton {
+        height: 40px;
+        width: 100px;
+        font-size: 16px;
+        margin-bottom: 20px;
+        background: #10c966;
+        border: none;
         border-radius: 5px;
-        border: 1px solid rgba(0, 0, 0, .2);
-        display: flex;
-        flex-direction: column;
-        input {
-            height: 28px;
-            font-size: 20px;
-            margin: 4px 0;
-            padding: 0 5px;
-            background-color: #124714;
-            color: #f8f8f8;
-            outline: none;
-            border-radius: 3px;
-            border: none;
-        }
-    }    
-}
-.totalCost {
-    font-size: 22px;
-    margin: 10px 0;
-}   
-.confirmButton {
-    height: 50px;
-    width: 140px;
-    font-size: 24px;
-    margin: 10px 0;
-    background-color: #0d3d25;
-    color: #fff;
-    border-radius: 5px;
-    transition: 0.5s;
-    border: none;
-    align-self: center;
-}
-.confirmButton:hover {
-    background-color: #10c966;
-    color: #000;
+        cursor: pointer;
+        transition: 0.5s;
+    }
+    .clearButton:hover {
+        background-color: #fff;
+        border: 1px solid #0cfa04;
+    }
+    .hide {
+        display: none;
+    }
 }
 .book {
     height: auto;
@@ -210,7 +181,6 @@ nav ul li:hover {
                 * {
                     margin: 0 5px;
                 }
-                
                 .bookCostBox {
                     height: 30px;
                     width: 75px;
@@ -232,31 +202,58 @@ nav ul li:hover {
         }
     } 
 }
-.booksPlusInfo {
+.orderContainer {
+    height: 400px;
+    width: 400px;
+    padding: 20px 30px;
+    background-color: #165a2a;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 2px 4px 8px #020c04;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    .goodsCount {
-        font-size: 22px;
-        margin: 0 20px;
-        color: #fff;
+    h2 {
+        font-size: 26px;
     }
-    .clearButton {
-        height: 40px;
-        width: 100px;
-        font-size: 16px;
-        margin-bottom: 20px;
-        background: #10c966;
-        border: none;
+    label {
+        font-size: 20px;
+        margin: 15px 0;
+        padding: 5px;
+        font-style: italic;
         border-radius: 5px;
-        cursor: pointer;
+        border: 1px solid rgba(58, 163, 36, 0.4);
+        color: #dbd8d8;
+        display: flex;
+        flex-direction: column;
+        input {
+            height: 28px;
+            font-size: 18px;
+            margin: 4px 0;
+            padding: 0 5px;
+            background-color: #154417;
+            color: #ffffff;
+            outline: none;
+            border-radius: 3px;
+            border: none;
+        }
+    }  
+    .totalCost {
+        font-size: 22px;
+        margin: 10px 0;
+    }   
+    .confirmButton {
+        font-size: 24px;
+        margin: 10px 0;
+        padding: 8px 10px;
+        background-color: #0d3d25;
+        color: #fff;
+        border-radius: 5px;
         transition: 0.5s;
+        border: none;
+        align-self: center;
     }
-    .clearButton:hover {
-        background-color: #fff;
-        border: 1px solid #0cfa04;
-    }
-    .hide {
-        display: none;
-    }
+    .confirmButton:hover {
+        background-color: #10c966;
+        color: #000;
+    }  
 }

@@ -5,11 +5,12 @@ cartIcon.innerHTML = `Кошик <b>${localStorage.length}</b>`
 
 const title = document.getElementsByTagName("title")[0],
     myUrl = new URL(location).searchParams.get("id"),
-    container = document.getElementsByClassName("container")[0];
+    container = document.getElementsByClassName("bookContainer")[0];
 
 const currentBook = allBooks.find((element) => element.id == myUrl);
 
 title.innerText = `${currentBook.name}`;
+
 container.innerHTML = "";
 container.insertAdjacentHTML("beforeend", `
     <div class="book">

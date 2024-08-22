@@ -21,62 +21,61 @@ header {
     right: 0;
     top: 0;
     z-index: 1;
-}
-.logoName {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    img {
-        height: 45px;
-        margin-right: 20px;
-    }
-    .smallLogo {
+    .logoName {
         display: flex;
+        justify-content: space-between;
         align-items: center;
+        img {
+            height: 45px;
+            margin-right: 20px;
+        }
+        .smallLogo {
+            display: flex;
+            align-items: center;
+        }
+        .companyName {
+            font-size: 26px;
+            font-weight: 600;
+            color: #fff;
+        }
     }
-    .companyName {
-        font-size: 26px;
-        font-weight: 600;
-        color: #fff;
-    }
-}
-header nav ul li {
-    position: relative;
-    float: left;
-    a {
-        font-size: 22px;
-        padding: 20px 40px;
-        color: #fff;
-        display: block;
-    }
-    a:hover {
-        background: #fff;
-        color: #000;
-    }
-    ul {
-        
-        width: 170px;
-        background: green;
-        display: none;    
-        position: absolute;
-        left: 0;  
-        li {
-            width: 100%;
-            border: 1px solid rgba(0, 0, 0, .1);
-            a {
-                font-size: 18px;
-                padding: 20px auto;
-                color: #fff;
+    nav ul li {
+        position: relative;
+        float: left;
+        a {
+            font-size: 22px;
+            padding: 20px 40px;
+            color: #fff;
+            display: block;
+        }
+        a:hover {
+            background: #fff;
+            color: #000;
+        }
+        ul {
+            width: 170px;
+            background: green;
+            display: none;    
+            position: absolute;
+            left: 0;  
+            li {
+                width: 100%;
+                border: 1px solid rgba(0, 0, 0, .1);
+                a {
+                    font-size: 18px;
+                    padding: 20px auto;
+                    color: #fff;
+                }
             }
         }
     }
-}
-nav ul li:hover {
-    ul {
-        display: initial;
+    nav ul li:hover {
+        ul {
+            display: initial;
+        }
     }
 }
-.container {
+.bookContainer {
     margin-top: 66px;
     padding: 40px 60px; 
 }
@@ -91,65 +90,65 @@ nav ul li:hover {
     * {
         margin: 0 10px;
     }
-    img {
+    .bookCover {
         height: 456px;
         width: 300px;
         border-radius: 3px;
     }
-}
-.bookInfo {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-.bookDetails {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    .bookName {
-        font-size: 26px;
-        margin: 10px 0;
-        font-weight: bold;
-    }
-    .bookAuthor {
-        font-size: 20px;
-        margin: 10px 0;
-        font-style: italic;
-        font-weight: 100;
-    }
-    .bookDescription {
-        font-size: 18px;
-        margin: 20px 0;
-    }
-}
-.bookBuying {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    .bookPriceBox {
-        height: 30px;
-        width: 75px;
-        margin: 0;
-        background-color: #14AE5C;
-        border-radius: 3px;
+    .bookInfo {
+        height: 100%;
         display: flex;
-        justify-content: center;
-        align-items: center;
+        flex-direction: column;
+        justify-content: space-between;
     }
-    .cartBox {
-        height: 40px;
-        width: 100px;
-        margin: 10px 0;
-        background-color: #16a829;
-        border-radius: 6px;
-        cursor: pointer;
+    .bookDetails {
         display: flex;
-        justify-content: center;
-        align-items: center;
+        flex-direction: column;
+        justify-content: space-evenly;
+        .bookName {
+            font-size: 26px;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+        .bookAuthor {
+            font-size: 20px;
+            margin: 10px 0;
+            font-style: italic;
+            font-weight: 100;
+        }
+        .bookDescription {
+            font-size: 18px;
+            margin: 20px 0;
+        }
     }
-    .act {
-        background: #cfcccc;
-        border: 1px solid #14AE5C;
+    .bookBuying {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        .bookPriceBox {
+            height: 30px;
+            width: 75px;
+            margin: 0;
+            background-color: #14AE5C;
+            border-radius: 3px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .cartBox {
+            height: 40px;
+            width: 100px;
+            margin: 10px 0;
+            background-color: #16a829;
+            border-radius: 6px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .act {
+            background: #cfcccc;
+            border: 1px solid #14AE5C;
+        }
     }
 }

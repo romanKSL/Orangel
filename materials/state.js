@@ -16,7 +16,7 @@ export const allBooks = [
     {id: 15, name: "The Da Vinci Code", author: "Dan Brown", cover: "./materials/img/bookCovers/The Da Vinci Code.jpg", price: 18.75, description: "A gripping thriller that combines art, history, and conspiracy."},
     {id: 16, name: "Gone with the Wind", author: "Margaret Mitchell", cover: "./materials/img/bookCovers/Gone with the Wind.jpg", price: 20.00, description: "A sweeping historical novel set during the American Civil War and Reconstruction era."},
     {id: 17, name: "The Shining", author: "Stephen King", cover: "./materials/img/bookCovers/The Shining.jpg", price: 17.50, description: "A chilling horror novel about a family isolated in a haunted hotel."},
-    {id: 18, name: "11/22/63", author: "Stephen King", cover: "./materials/img/bookCovers/221163.jpg", price: 16.4, description: "A novel about a time traveler who attempts to prevent the assassination of United States President John F. Kennedy"},
+    {id: 18, name: "11/22/63", author: "Stephen King", cover: "./materials/img/bookCovers/112263.jpg", price: 16.4, description: "A novel about a time traveler who attempts to prevent the assassination of United States President John F. Kennedy"},
     {id: 19, name: "The Girl with the Dragon Tattoo", author: "Stieg Larsson", cover: "./materials/img/bookCovers/The Girl with the Dragon Tattoo.jpg", price: 16.75, description: "A gripping crime novel involving a missing person case and a journalist's investigation."},
     {id: 20, name: "Life of Pi", author: "Yann Martel", cover: "./materials/img/bookCovers/Life of Pi.jpg", price: 14.50, description: "A fantastical adventure story of a boy stranded on a lifeboat with a Bengal tiger."},
     {id: 21, name: "Little Women", author: "Louisa May Alcott", cover: "./materials/img/bookCovers/Little Women.jpg", price: 13.00, description: "A beloved classic about the lives and trials of the four March sisters."},
@@ -30,6 +30,7 @@ export const allBooks = [
     {id: 29, name: "The Count of Monte Cristo", author: "Alexandre Dumas", cover: "./materials/img/bookCovers/The Count of Monte Cristo.jpg", price: 16.75, description: "A classic adventure novel of betrayal, revenge, and redemption."},
     {id: 30, name: "One Hundred Years of Solitude", author: "Gabriel García Márquez", cover: "./materials/img/bookCovers/One Hundred Years of Solitude.jpg", price: 17.50, description: "A landmark in magical realism telling the story of the Buendía family over several generations."},
 ];
+
 
 export const bestsellersBooks = [
     {id: 2, name: "1984", author: "George Orwell", cover: "./materials/img/bookCovers/1984.jpg", price: 9.99, description: "A dystopian novel exploring the dangers of totalitarianism and extreme political ideology."},

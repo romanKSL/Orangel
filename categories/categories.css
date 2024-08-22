@@ -21,59 +21,58 @@ header {
     right: 0;
     top: 0;
     z-index: 1;
-}
-.logoName {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    img {
-        height: 45px;
-        margin-right: 20px;
-    }
-    .smallLogo {
+    .logoName {
         display: flex;
+        justify-content: space-between;
         align-items: center;
+        img {
+            height: 45px;
+            margin-right: 20px;
+        }
+        .smallLogo {
+            display: flex;
+            align-items: center;
+        }
+        .companyName {
+            font-size: 26px;
+            font-weight: 600;
+            color: #fff;
+        }
     }
-    .companyName {
-        font-size: 26px;
-        font-weight: 600;
-        color: #fff;
-    }
-}
-header nav ul li {
-    position: relative;
-    float: left;
-    a {
-        font-size: 22px;
-        padding: 20px 40px;
-        color: #fff;
-        display: block;
-    }
-    a:hover {
-        background: #fff;
-        color: #000;
-    }
-    ul {
-        
-        width: 170px;
-        background: green;
-        display: none;    
-        position: absolute;
-        left: 0;  
-        li {
-            width: 100%;
-            border: 1px solid rgba(0, 0, 0, .1);
-            a {
-                font-size: 18px;
-                padding: 20px auto;
-                color: #fff;
+    nav ul li {
+        position: relative;
+        float: left;
+        a {
+            font-size: 22px;
+            padding: 20px 40px;
+            color: #fff;
+            display: block;
+        }
+        a:hover {
+            background: #fff;
+            color: #000;
+        }
+        ul {
+            width: 170px;
+            background: green;
+            display: none;    
+            position: absolute;
+            left: 0;  
+            li {
+                width: 100%;
+                border: 1px solid rgba(0, 0, 0, .1);
+                a {
+                    font-size: 18px;
+                    padding: 20px auto;
+                    color: #fff;
+                }
             }
         }
     }
-}
-nav ul li:hover {
-    ul {
-        display: initial;
+    nav ul li:hover {
+        ul {
+            display: initial;
+        }
     }
 }
 .container {
@@ -90,6 +89,19 @@ nav ul li:hover {
     margin-bottom: 20px;
     color: #fff;
     cursor: default;
+}
+.searchLabel {
+    color: #fff;
+    margin: 5px 0;
+}
+#search {
+    font-size: 18px;
+    border-radius: 5px;
+    padding: 5px;
+    color: #fff;
+    outline: none;
+    background-color: #103519;
+    border: none;
 }
 .booksContainer {
     width: auto;

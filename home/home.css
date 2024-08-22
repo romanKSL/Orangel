@@ -21,59 +21,58 @@ header {
     right: 0;
     top: 0;
     z-index: 1;
-}
-.logoName {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    img {
-        height: 45px;
-        margin-right: 20px;
-    }
-    .smallLogo {
+    .logoName {
         display: flex;
+        justify-content: space-between;
         align-items: center;
+        img {
+            height: 45px;
+            margin-right: 20px;
+        }
+        .smallLogo {
+            display: flex;
+            align-items: center;
+        }
+        .companyName {
+            font-size: 26px;
+            font-weight: 600;
+            color: #fff;
+        }
     }
-    .companyName {
-        font-size: 26px;
-        font-weight: 600;
-        color: #fff;
-    }
-}
-header nav ul li {
-    position: relative;
-    float: left;
-    a {
-        font-size: 22px;
-        padding: 20px 40px;
-        color: #fff;
-        display: block;
-    }
-    a:hover {
-        background: #fff;
-        color: #000;
-    }
-    ul {
-        
-        width: 170px;
-        background: green;
-        display: none;    
-        position: absolute;
-        left: 0;  
-        li {
-            width: 100%;
-            border: 1px solid rgba(0, 0, 0, .1);
-            a {
-                font-size: 18px;
-                padding: 20px auto;
-                color: #fff;
+    nav ul li {
+        position: relative;
+        float: left;
+        a {
+            font-size: 22px;
+            padding: 20px 40px;
+            color: #fff;
+            display: block;
+        }
+        a:hover {
+            background: #fff;
+            color: #000;
+        }
+        ul {
+            width: 170px;
+            background: green;
+            display: none;    
+            position: absolute;
+            left: 0;  
+            li {
+                width: 100%;
+                border: 1px solid rgba(0, 0, 0, .1);
+                a {
+                    font-size: 18px;
+                    padding: 20px auto;
+                    color: #fff;
+                }
             }
         }
     }
-}
-nav ul li:hover {
-    ul {
-        display: initial;
+    nav ul li:hover {
+        ul {
+            display: initial;
+        }
     }
 }
 .about {
@@ -89,13 +88,45 @@ nav ul li:hover {
         border-radius: 8px;
     }
     p {
-        width: 510px;
         font-size: 18px;
+        margin: 0 60px;
         cursor: default;
     }
     .bigLogo {
         height: 260px;
     }
+}
+.booksSection {
+    margin-bottom: 20px;
+    padding: 0 2%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    a {
+        font-size: 28px;
+        margin-top: 50px;
+        margin-bottom: 40px;
+        color: #fff;
+        text-decoration: none;
+        transition: 0.3s;
+    }
+    a:hover {
+        color: #000;
+    }
+}
+.booksContainer {
+    height: 508px;
+    width: 100%;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .bestsellersBooks {
+        display: flex;
+    }
+}
+.bestsellersContainer, .classicContainer {
+    display: flex;
 }
 .book {
     height: auto;
@@ -145,37 +176,10 @@ nav ul li:hover {
         background-color: #12c536;
     }
 }
-.booksSection {
-    margin-bottom: 20px;
-    padding: 0 2%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    a {
-        font-size: 28px;
-        margin-top: 50px;
-        margin-bottom: 40px;
-        color: #fff;
-        text-decoration: none;
-        transition: 0.3s;
-    }
-    a:hover {
-        color: #000;
-    }
-}
-.booksContainer {
-    height: 508px;
-    width: 100%;
-    
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    .bestsellersBooks {
-        display: flex;
-    }
-}
-.bestsellersContainer, .classicContainer {
-    display: flex;
+.arrow {
+    height: 40px;
+    margin: 0 auto;
+    cursor: pointer;
 }
 .pagesRectangles {
     display: flex;
@@ -191,9 +195,4 @@ nav ul li:hover {
 }
 .act {
     background-color: rgb(78, 74, 74);
-}
-.arrow {
-    height: 30px;
-    margin: 0 auto;
-    cursor: pointer;
 }

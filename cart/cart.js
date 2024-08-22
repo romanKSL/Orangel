@@ -1,7 +1,8 @@
 import { allBooks } from "../materials/state.js";
 
 const cartIcon = document.getElementsByClassName("cartIcon")[0],
-    goodsCount = document.getElementsByClassName("goodsCount")[0], cartPageContainer = document.getElementsByClassName("booksContainer")[0],
+booksCount = document.getElementsByClassName("booksCount")[0],
+    cartPageContainer = document.getElementsByClassName("booksContainer")[0],
     confirmButton = document.getElementsByClassName("confirmButton")[0],
     clearButton = document.getElementsByClassName("clearButton")[0],
     totalCost = document.getElementsByClassName("totalCost")[0],
@@ -41,10 +42,10 @@ function cartSumDisplay() {
 function cartRender() {
     cartIcon.innerHTML = `Кошик <b>${localStorage.length}</b>`
     if (localStorage.length == 0) {
-        goodsCount.innerText = "Ваш кошик наразі порожній";
+        booksCount.innerText = "Ваш кошик наразі порожній";
         clearButton.classList.add("hide");
     } else {
-        goodsCount.innerText = "";
+        booksCount.innerText = "";
         clearButton.classList.remove("hide");
     }
     cartPageContainer.innerHTML = "";
@@ -58,7 +59,7 @@ function cartRender() {
                     <div class="bookDetails">
                         <div class="bookNamePlusDelete">
                             <span class="bookName">${tempBook.name}</span>
-                           <span id=${tempBook.id} class="delete">X</span>
+                            <span id=${tempBook.id} class="delete">X</span>
                         </div>
                         <span class="bookAuthor">${tempBook.author}</span>
                     </div>
