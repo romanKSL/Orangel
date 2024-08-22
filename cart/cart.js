@@ -15,7 +15,7 @@ cartRender();
 confirmButton.addEventListener("click", () => {
     if (localStorage.length == 0) {
         alert("Ваш кошик порожній!");
-    }else if (nameInput.value == "" || phoneNumberInput == ""){
+    }else if (nameInput.value == "" || phoneNumberInput.value == ""){
         alert("Будь ласка, заповніть Ваші данні");
     }else if (confirm("Ви дійсно бажаєте оформити замовлення?")) {
         alert(`Вітаємо ${nameInput.value}! Ви успішно оформили замовлення. Очікуйте дзвінка`);
